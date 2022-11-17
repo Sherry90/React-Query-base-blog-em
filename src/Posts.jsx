@@ -16,7 +16,7 @@ export const Posts = () => {
   const [selectedPost, setSelectedPost] = useState(null);
 
   // replace with useQuery
-  const { data, isError, error, isLoading } = useQuery("posts", asyncfetchPosts);
+  const { data, isError, error, isLoading } = useQuery("posts", asyncfetchPosts, { staleTime : 2_000});
 
   if(isLoading) return <h3>Loading....</h3>
   if(isError) return (
