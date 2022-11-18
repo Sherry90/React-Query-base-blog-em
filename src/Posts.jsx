@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useQuery, useQueryClient } from "react-query";
 
 import { PostDetail } from "./PostDetail";
@@ -34,6 +34,10 @@ export const Posts = () => {
     }
   );
 
+  const titleUpdateHandler = (value) => {
+    console.log(value);
+  }
+
   if(isLoading) return <h3>Loading....</h3>
   if(isError) return (
     <>
@@ -64,7 +68,7 @@ export const Posts = () => {
         </button>
       </div>
       <hr />
-      {selectedPost && <PostDetail post={selectedPost} />}
+      {selectedPost && <PostDetail post={selectedPost} update={titleUpdateHandler} />}
     </>
   );
 }
